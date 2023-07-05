@@ -1,0 +1,25 @@
+.row {
+    max-width: $grid-width;
+    background-color: $color-grey-dark;
+    color: rgb(119, 111, 111);
+    margin: 0 auto;
+
+    &:not(:last-child) {
+        margin-bottom: $gutter-vertical;
+    }
+
+    .col-1-of-2 {
+        // in order to use variables in calc we use #{}
+        width: calc((100% - #{$gutter-horizontal}) / 2);
+        background-color: rgb(99, 182, 255);
+        float: left;
+
+        &:not(:last-child) {
+            margin-right: $gutter-horizontal;
+        }
+
+    }
+
+    @include clearfix;
+}
+
