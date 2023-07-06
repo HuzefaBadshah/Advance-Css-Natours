@@ -1,5 +1,19 @@
 .btn {
 
+    &::after {
+        content: "";
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        border-radius: 10rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        transition-property: all;
+        transition-duration: .5s;
+    }
+
     &--white {
         background-color: #fff;
         color: $color-grey-dark;
@@ -35,21 +49,7 @@
         transform: translateY(-1rem);
         box-shadow: 0 .5rem 1rem rgba($color-black, .2);
     }
-    
-    &::after {
-        content: "";
-        display: inline-block;
-        height: 100%;
-        width: 100%;
-        border-radius: 10rem;
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: -1;
-        transition-property: all;
-        transition-duration: .5s;
-    }    
-    
+
     &--animated {
         animation-name: moveMyWay;
         animation-timing-function: ease-out;
