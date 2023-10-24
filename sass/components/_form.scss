@@ -1,0 +1,101 @@
+.form {
+  &__group:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+  &__input {
+    font-size: 1.5rem;
+    font-family: inherit;
+    color: inherit;
+    padding: 1.5rem 2rem;
+    border-radius: 2px;
+    background-color: rgba($color-white, 0.5);
+    border: none;
+    border-bottom: 3px solid transparent;
+    display: block;
+    width: 90%;
+    transition: all 0.4s;
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 1rem 2rem rgba($color-black, 0.1);
+      border-bottom: 3px solid $color-primary;
+    }
+
+    &:focus:invalid {
+      border-bottom: 3px solid $color-secondary-dark;
+    }
+
+    // select placeholder for webkit supported browsers
+    &::-webkit-input-placeholder {
+      color: $color-grey-dark-2;
+    }
+  }
+
+  &__label {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-left: 2rem;
+    margin-top: 0.7rem;
+    display: block;
+    transition-property: opacity transform;
+    transition-duration: 0.3s;
+  }
+
+  // lecture 05/17 talks about sibling selector
+  // + (adjacent sibling selector): this is used to select direct sibling element. This means the first direct sibling element
+  // if the element is not direct sibling and there are multiple elements in b/w, then use ~ (general sibling selector) selector
+  // Need to add opacity coz we cannot animate with visibility
+
+  &__input:placeholder-shown + &__label {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4rem);
+  }
+
+  &__radio-group {
+    width: 49%;
+    display: inline-block;
+  }
+
+  &__radio-input {
+    display: none;
+  }
+
+  &__radio-label {
+    font-size: $default-font-size;
+    cursor: pointer;
+    position: relative;
+    padding-left: 4.5rem;
+  }
+
+  &__radio-button {
+    height: 3rem;
+    width: 3rem;
+    border: 5px solid $color-primary;
+    border-radius: 50%;
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    top: -0.4;
+
+    &::after {
+      content: '';
+      display: block;
+      height: 1rem;
+      width: 1rem;
+      border-radius: 50%;
+      background-color: $color-primary;
+      position: absolute; // parent should have some position set, be it relative or absolute.
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      transition: all 0.3s;
+    }
+  }
+
+  // as soon as radio input is selected, the input becomes checked and :checked is the pseudo selector just like hover which represents that state
+  &__radio-input:checked + &__radio-label &__radio-button::after {
+    opacity: 1;
+  }
+}
