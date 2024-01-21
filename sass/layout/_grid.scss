@@ -6,6 +6,21 @@
 
   &:not(:last-child) {
     margin-bottom: $gutter-vertical;
+
+    @include respond(tablet-portrait) {
+      margin-bottom: $gutter-vertical-small;
+    }
+  }
+
+  @include respond(tablet-portrait) {
+    max-width: 60rem;
+    padding: 0 3rem;
+  }
+
+  @include respond(tablet-portrait) {
+    &--responsive-stories {
+      max-width: 90rem;
+    }
   }
 
   // attribute selector
@@ -16,6 +31,14 @@
 
     &:not(:last-child) {
       margin-right: $gutter-horizontal;
+      @include respond(tablet-portrait) {
+        margin-right: 0;
+        margin-bottom: $gutter-vertical-small;
+      }
+    }
+
+    @include respond(tablet-portrait) {
+      width: 100% !important;
     }
   }
 

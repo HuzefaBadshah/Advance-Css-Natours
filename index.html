@@ -264,7 +264,7 @@
                 </h2>
             </div>
 
-            <div class="row">
+            <div class="row row--responsive-stories">
                 <div class="story">
                     <figure class="story__shape">
                         <img src="img/nat-8.jpg" alt="Person on a tour" class="story__img" />
@@ -283,7 +283,7 @@
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row row--responsive-stories">
                 <div class="story">
                     <figure class="story__shape">
                         <img src="img/nat-9.jpg" alt="Person on a tour" class="story__img" />
@@ -359,7 +359,13 @@
 
     <footer class="footer">
         <div class="footer__logo-box">
-            <img src="img/logo-green-2x.png" alt="Full Logo" class="footer__logo">
+            <picture class="footer__logo">
+
+                <source media="(max-width: 37.5em)"
+                    srcset="img/logo-green-small-1x.png 1x, img/logo-green-small-2x.png 2x">
+                <img src="img/logo-green-2x.png" srcset="img/logo-green-1x.png 1x, img/logo-green-2x.png 2x"
+                    alt="Full Logo" />
+            </picture>
         </div>
 
         <div class="row">
@@ -447,6 +453,15 @@
             <div class="col-3-of-4">Col 3 of 4</div>
         </div>
     </section> -->
+    <!-- <div class="test">
+        <div class="test__1">
+            Test1
+        </div>
+
+        <div class="test__2">
+            Test2
+        </div>
+    </div> -->
 </body>
 
 </html>

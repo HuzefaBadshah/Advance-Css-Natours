@@ -8,9 +8,26 @@
 
 html {
   // this defines what one rem is
-  font-size: 48.5%;
+  font-size: 48.5%; // 1rem = 7.76px; 7.76px/16px = 48.5%
+
+  // @include respond(phone) { // Don't need this one as the last one with same rules wins.
+  //   font-size: 36%; // 1rem =
+  // }
+  @include respond(tablet-landscape) {
+    font-size: 42.25%; // 1rem = 6.76px; 6.76px/16px = 42.25%
+  }
+  @include respond(tablet-portrait) {
+    font-size: 36%; // 1rem = 5.76px; 5.76px/16px = 36%
+  }
+  @include respond(big-desktop) {
+    font-size: 61%; // 1rem = 9.76px; 9.76px/16px = 61%
+  }
 }
 
 body {
   box-sizing: border-box;
+  padding: 3rem;
+  @include respond(tablet-portrait) {
+    padding: 0;
+  }
 }
